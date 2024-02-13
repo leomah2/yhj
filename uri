@@ -1,0 +1,18 @@
+sudo systemctl enable chainflip-engine
+
+tail -f /var/log/chainflip-engine.log
+
+logrotate
+
+sudo nano /etc/logrotate.d/chainflip
+
+/var/log/chainflip-*.log {
+  rotate 7
+  daily
+  dateext
+  dateformat -%Y-%m-%d
+  missingok
+  notifempty
+  copytruncate
+  nocompress
+}
